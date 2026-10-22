@@ -1,0 +1,10 @@
+{
+  "id": "units:meter",
+  "term": "Meter",
+  "type": "unit",
+  "value": 1.0,
+  "units": "m",
+  "source_id": "WD:Q11570",
+  "reference_urls": ["https://www.bipm.org/en/si-base-units/metre"],
+  "related_ids": ["units:kilometer", "physics:speed_of_light_vacuum"]
+}
