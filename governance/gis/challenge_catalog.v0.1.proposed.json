@@ -1,0 +1,327 @@
+{
+  "catalog_id": "gis-1.0-core4-challenge-catalog",
+  "version": "0.1.0-proposed",
+  "status": "PROPOSED — not ratified; requires owner approval before sealing",
+  "derived_from": "Core Four v2 extensions (sealed, owner locked 2026-10-22)",
+  "challenges": [
+    {
+      "challenge_id": "L-R01",
+      "lens": "locke",
+      "name": "provenance",
+      "applies_when": "subject is used as a current fact",
+      "context_restriction": null,
+      "material_objection": false,
+      "may_raise_conflict_types": [
+        "unsupported_provenance"
+      ],
+      "source": {
+        "file": "seed_locke.extension.v2.json",
+        "extension_seal": "badef79b5526b38d07748fa7af8124a499ad58d32bfa1beac4e698be85525555"
+      },
+      "applicability_predicate": null
+    },
+    {
+      "challenge_id": "L-R02",
+      "lens": "locke",
+      "name": "self_corroboration",
+      "applies_when": "subject has supporting references",
+      "context_restriction": null,
+      "material_objection": true,
+      "may_raise_conflict_types": [
+        "self_corroboration"
+      ],
+      "source": {
+        "file": "seed_locke.extension.v2.json",
+        "extension_seal": "badef79b5526b38d07748fa7af8124a499ad58d32bfa1beac4e698be85525555"
+      },
+      "applicability_predicate": null
+    },
+    {
+      "challenge_id": "L-R03",
+      "lens": "locke",
+      "name": "superseded_by_experience",
+      "applies_when": "a newer reference in the same scope exists",
+      "context_restriction": null,
+      "material_objection": false,
+      "may_raise_conflict_types": [
+        "superseded"
+      ],
+      "source": {
+        "file": "seed_locke.extension.v2.json",
+        "extension_seal": "badef79b5526b38d07748fa7af8124a499ad58d32bfa1beac4e698be85525555"
+      },
+      "applicability_predicate": null
+    },
+    {
+      "challenge_id": "L-R04",
+      "lens": "locke",
+      "name": "consent",
+      "applies_when": "subject proposes an action touching visitor data or commitments",
+      "context_restriction": null,
+      "material_objection": false,
+      "may_raise_conflict_types": [
+        "consent_missing"
+      ],
+      "source": {
+        "file": "seed_locke.extension.v2.json",
+        "extension_seal": "badef79b5526b38d07748fa7af8124a499ad58d32bfa1beac4e698be85525555"
+      },
+      "applicability_predicate": null
+    },
+    {
+      "challenge_id": "H-R01",
+      "lens": "hume",
+      "name": "causation",
+      "applies_when": "subject asserts that one thing causes another",
+      "context_restriction": null,
+      "material_objection": false,
+      "may_raise_conflict_types": [
+        "causal_overreach"
+      ],
+      "source": {
+        "file": "seed_hume.extension.v2.json",
+        "extension_seal": "07a60a41bc5fa7e1acf5c934035abfe764025948ece89d3c3e04f2a0766266d1"
+      },
+      "applicability_predicate": null
+    },
+    {
+      "challenge_id": "H-R02",
+      "lens": "hume",
+      "name": "is_ought",
+      "applies_when": "subject is a recommendation",
+      "context_restriction": null,
+      "material_objection": false,
+      "may_raise_conflict_types": [
+        "is_ought_conflation"
+      ],
+      "source": {
+        "file": "seed_hume.extension.v2.json",
+        "extension_seal": "07a60a41bc5fa7e1acf5c934035abfe764025948ece89d3c3e04f2a0766266d1"
+      },
+      "applicability_predicate": null
+    },
+    {
+      "challenge_id": "H-R03",
+      "lens": "hume",
+      "name": "induction",
+      "applies_when": "a general pattern is applied to a specific current case",
+      "context_restriction": null,
+      "material_objection": false,
+      "may_raise_conflict_types": [
+        "unwarranted_generalization"
+      ],
+      "source": {
+        "file": "seed_hume.extension.v2.json",
+        "extension_seal": "07a60a41bc5fa7e1acf5c934035abfe764025948ece89d3c3e04f2a0766266d1"
+      },
+      "applicability_predicate": null
+    },
+    {
+      "challenge_id": "H-R04",
+      "lens": "hume",
+      "name": "proportion",
+      "applies_when": "the subject's confidence and its evidence differ",
+      "context_restriction": null,
+      "material_objection": false,
+      "may_raise_conflict_types": [
+        "overstated_certainty"
+      ],
+      "source": {
+        "file": "seed_hume.extension.v2.json",
+        "extension_seal": "07a60a41bc5fa7e1acf5c934035abfe764025948ece89d3c3e04f2a0766266d1"
+      },
+      "applicability_predicate": null
+    },
+    {
+      "challenge_id": "H-R05",
+      "lens": "hume",
+      "name": "sympathetic_response",
+      "applies_when": "the interaction includes an explicit expression of distress or a provisional distress classification",
+      "context_restriction": null,
+      "material_objection": false,
+      "may_raise_conflict_types": [
+        "unaddressed_distress"
+      ],
+      "source": {
+        "file": "seed_hume.extension.v2.json",
+        "extension_seal": "07a60a41bc5fa7e1acf5c934035abfe764025948ece89d3c3e04f2a0766266d1"
+      },
+      "applicability_predicate": null
+    },
+    {
+      "challenge_id": "K-R01",
+      "lens": "kant",
+      "name": "universal_test",
+      "applies_when": "subject is a material price, policy, or terms statement",
+      "context_restriction": null,
+      "material_objection": false,
+      "may_raise_conflict_types": [
+        "universalizability_failure"
+      ],
+      "source": {
+        "file": "seed_kant.extension.v2.json",
+        "extension_seal": "19b340e7e496dd475fcb0689c821b97454d8429e227f7f32045a530131f4fd76"
+      },
+      "applicability_predicate": null
+    },
+    {
+      "challenge_id": "K-R02",
+      "lens": "kant",
+      "name": "people_as_ends",
+      "applies_when": "a sales-advancing move is proposed",
+      "context_restriction": null,
+      "material_objection": false,
+      "may_raise_conflict_types": [
+        "person_as_means"
+      ],
+      "source": {
+        "file": "seed_kant.extension.v2.json",
+        "extension_seal": "19b340e7e496dd475fcb0689c821b97454d8429e227f7f32045a530131f4fd76"
+      },
+      "applicability_predicate": null
+    },
+    {
+      "challenge_id": "K-R03",
+      "lens": "kant",
+      "name": "truthfulness",
+      "applies_when": {
+        "contexts": [
+          "knowledge_maintenance",
+          "live_turn"
+        ]
+      },
+      "context_restriction": null,
+      "material_objection": false,
+      "may_raise_conflict_types": [
+        "unsupported_provenance",
+        "contradicted_by_verified"
+      ],
+      "source": {
+        "file": "seed_kant.extension.v2.json",
+        "extension_seal": "19b340e7e496dd475fcb0689c821b97454d8429e227f7f32045a530131f4fd76"
+      },
+      "applicability_predicate": null
+    },
+    {
+      "challenge_id": "K-R04",
+      "lens": "kant",
+      "name": "informed_choice",
+      "applies_when": "the ORB proposes a consequential choice on the visitor's behalf",
+      "context_restriction": null,
+      "material_objection": false,
+      "may_raise_conflict_types": [
+        "uninformed_choice"
+      ],
+      "source": {
+        "file": "seed_kant.extension.v2.json",
+        "extension_seal": "19b340e7e496dd475fcb0689c821b97454d8429e227f7f32045a530131f4fd76"
+      },
+      "applicability_predicate": null
+    },
+    {
+      "challenge_id": "S-R01",
+      "lens": "spinoza",
+      "name": "the_whole",
+      "applies_when": "an action or recommendation is proposed",
+      "context_restriction": null,
+      "material_objection": false,
+      "may_raise_conflict_types": [
+        "whole_system_harm"
+      ],
+      "source": {
+        "file": "seed_spinoza.extension.v2.json",
+        "extension_seal": "e322fcb6ce6dd2b70387c7afa6059793cfd130b74bfe448aba4a74e18030c900"
+      },
+      "applicability_predicate": null
+    },
+    {
+      "challenge_id": "S-R02",
+      "lens": "spinoza",
+      "name": "consistency",
+      "applies_when": "knowledge in use includes claims about the same subject, or conduct is measured against the inculcated identity",
+      "context_restriction": null,
+      "material_objection": false,
+      "may_raise_conflict_types": [
+        "internal_inconsistency"
+      ],
+      "source": {
+        "file": "seed_spinoza.extension.v2.json",
+        "extension_seal": "e322fcb6ce6dd2b70387c7afa6059793cfd130b74bfe448aba4a74e18030c900"
+      },
+      "applicability_predicate": null
+    },
+    {
+      "challenge_id": "S-R03",
+      "lens": "spinoza",
+      "name": "adequacy_for_stakes",
+      "applies_when": "knowledge is about to support a consequential action or become a durable fact",
+      "context_restriction": null,
+      "material_objection": false,
+      "may_raise_conflict_types": [
+        "inadequate_for_stakes"
+      ],
+      "source": {
+        "file": "seed_spinoza.extension.v2.json",
+        "extension_seal": "e322fcb6ce6dd2b70387c7afa6059793cfd130b74bfe448aba4a74e18030c900"
+      },
+      "applicability_predicate": null
+    },
+    {
+      "challenge_id": "S-R04",
+      "lens": "spinoza",
+      "name": "clarity_over_pressure",
+      "applies_when": "an urgency, scarcity, or deadline is presented as fact",
+      "context_restriction": null,
+      "material_objection": false,
+      "may_raise_conflict_types": [
+        "unfounded_pressure"
+      ],
+      "source": {
+        "file": "seed_spinoza.extension.v2.json",
+        "extension_seal": "e322fcb6ce6dd2b70387c7afa6059793cfd130b74bfe448aba4a74e18030c900"
+      },
+      "applicability_predicate": null
+    },
+    {
+      "challenge_id": "S-R05",
+      "lens": "spinoza",
+      "name": "growing_understanding",
+      "applies_when": "an atom gains new supporting evidence",
+      "context_restriction": "knowledge_maintenance only",
+      "material_objection": false,
+      "may_raise_conflict_types": [],
+      "source": {
+        "file": "seed_spinoza.extension.v2.json",
+        "extension_seal": "e322fcb6ce6dd2b70387c7afa6059793cfd130b74bfe448aba4a74e18030c900"
+      },
+      "applicability_predicate": null
+    }
+  ],
+  "pairwise_cross_examinations": [
+    [
+      "locke",
+      "hume"
+    ],
+    [
+      "locke",
+      "kant"
+    ],
+    [
+      "locke",
+      "spinoza"
+    ],
+    [
+      "hume",
+      "kant"
+    ],
+    [
+      "hume",
+      "spinoza"
+    ],
+    [
+      "kant",
+      "spinoza"
+    ]
+  ],
+  "catalog_hash": "f35123c0d82f9654947b51c50d370cb3106d547d7ed50041ffbc1949cae7738d"
+}
