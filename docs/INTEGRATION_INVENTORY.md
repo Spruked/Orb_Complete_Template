@@ -60,12 +60,21 @@ The pieces of one complete ORB already exist, but in parallel versions. Four fin
    - Neither line fixes: automatic retirement below 0.20 (`skg/domain.py`), or relation-blind `relevance_weight()` that lets contradiction edges raise relevance. Both are release blockers (owner decision).
    - Two session-memory designs (`host_sessions.py` vs `session_memory.py`) must be reconciled into one.
 
-2. **Doctrine v1 — the seal is not real.**
-   - `Correspondence_Engine_skg_v1/doctrine/evaluator.py`: `DOCTRINE_CANONICAL_SHA256 = e3b0c442…b855`, which is `sha256("")`.
-   - When `doctrine_source_text` is omitted, `hash_valid = True` (fails open). When real doctrine text is supplied, the check fails, because no non-empty text hashes to the empty-string digest.
-   - The provenance amendment `Doctrine_v1.0_Provenance_Amendment_HLSF_Core4.md` hashes to `040c8008…09a1`; the ratified Doctrine text itself was not found as a file in Orbot or Orb Weaver (a PDF exists in Orb_Assistant).
-   - Separately, the golden template's `doctrine_gate.py` is a simple action-class blocklist, a different implementation from the Doctrine v1 evaluator.
-   - Required: locate the ratified Doctrine text, seal it with its real hash, make the check fail closed, and decide which gate is canonical.
+2. **Doctrine v1 — no implementation verifies the ratified text.** Located the governance record in `Spruked/Governance_Orb_Interface_Docking_Station` @ `210a884` (2026-03-07), `orb-governance/doctrine/`:
+
+   | File | Actual SHA-256 (bytes as stored) |
+   |---|---|
+   | `Doctrine_v1.0+B+C+D.txt` (3,700 bytes, LF) | `250e189900e4428576d4d8184403b2746f4e770f370db8ec024b82184cefbb72` |
+   | same file with Windows CRLF line endings | `f122266f90474fdebe8adb57b4ecdc51f691cad3326dd70dafe2e5b6fce44bb8` (the `F122266F…` hash Orb Weaver production verifies) |
+   | `doctrine_record_v1.0.md`, `doctrine_v1.0_hash.txt`, `doctrine_readme.md` | each records `b601457a…` |
+
+   Findings:
+   - **Neither recorded hash can be reproduced.** `27c7bfa7…` and `b601457a…` match no byte variant tested (LF/CRLF, BOM, trailing newline, UTF-16). They cannot be hashes of `Doctrine_v1.0+B+C+D.txt`, because that file contains both values inside itself; a file cannot contain its own SHA-256.
+   - **The file named `Doctrine_v1.0+B+C+D.txt` is a freeze-confirmation summary, not the constitution.** It references Articles I–VIII and Appendices B, C, D but does not contain their text. The Articles were not found in any repository examined.
+   - **The production seal depends on line endings.** The same content hashes to `250e1899…` (LF, as stored in git) or `f122266f…` (CRLF, Windows checkout).
+   - **Every gate fails open or checks a claimed string:** Orbot's evaluator anchors to `sha256("")` and passes when no text is supplied; `Orb_Assistant_Desktop_2026` (`doctrine_governance.py`) compares a caller-supplied hash string against the two recorded values and passes when none is supplied, never hashing the file; the golden template's `doctrine_gate.py` is an action-class blocklist.
+   - **Google Drive (folder "02 — Doctrine v1 · Governance") holds the source text as Google Docs, not as a byte file:** " Doctrine v1.0" (created 2026-02-09, last modified 2026-02-10) contains Articles I–VIII, the analysis sections, and Appendix A; "Doctrine v1 Governance Baselineshe 256" holds the March 5 freeze summary describing Appendices B, C, D. Neither recorded hash matches the exported text under any tested normalization, which is expected: a Google Doc has no fixed byte form, so it cannot be the artifact those hashes were computed over. The original `.txt` bundle was most likely produced on the owner's machine (`R:\substrate\governance\`).
+   - Required: locate the ratified Articles I–VIII + B/C/D text (governance record also references `R:\substrate\governance\doctrine_record_v1.0.md`, which is on the owner's machine and not reachable from this session); seal it with canonical normalization (UTF-8, LF, as for the Core Four seals); verify by hashing the actual bytes at startup; fail closed.
 
 3. **Core Four — four implementations, different roles.**
    | Implementation | Kant | Locke | Hume | Spinoza |
@@ -114,7 +123,7 @@ These relevant branches diverged 88 to 288 commits behind the reference. They ar
 ## 4. Release blockers before any component is pinned
 
 1. A.I.M.S.: retirement candidacy instead of auto-retire at 0.20; relation-aware relevance; one session-memory design; single-writer enforcement; backward-compatible Vault loading.
-2. Doctrine v1: real seal over the ratified text; fail-closed verification.
+2. Doctrine v1: locate the ratified Articles; seal with line-ending-independent normalization; verify by hashing actual bytes; fail closed.
 3. Site knowledge stored so superseded facts can be retired.
 
 ## 5. Proposed integration order
@@ -128,10 +137,26 @@ These relevant branches diverged 88 to 288 commits behind the reference. They ar
 7. Unified tool and API manifest; MCP tools behind the control plane.
 8. Manufacturing pipeline producing products from the template; shared regression suite.
 
-## 6. Owner decisions required
+## 6. Decisions applied (GPT Turn 58, owner-accepted)
 
-1. **Core Four in action admission:** treat Orbot's Core-4 tribunal as the same four lenses applied to actions (aligned to the locked v2 roles), or as a separate admission check?
-2. **MCP R-Substrate:** retire it in favor of the runtime cognition path, or keep it as an independent desktop-tool check?
-3. **Canonical TPC:** Orbot's copy or the golden template's vendored copy?
-4. **Doctrine text:** where is the ratified Doctrine v1.0 text to seal?
-5. **Canonical gate:** Doctrine v1 evaluator, the golden template's action-class gate, or both in sequence?
+| # | Decision | Effect |
+|---|---|---|
+| 1 | One canonical Core Four v2; Orbot's admission tribunal becomes an evaluation context, not a competing definition | Authority rank moves to the controller; confidence floors become policy thresholds |
+| 2 | MCP R-Substrate becomes a cognition/tool adapter | Tool capabilities kept; duplicate decision authority removed after compatibility tests |
+| 3 | Orbot's TPC is the integration baseline | All 20 differing files compared against the golden template; Website ORB capabilities preserved |
+| 4 | Locate and verify the ratified Doctrine; no substitute seal | See 2.3 item 2; governed execution path fails closed until resolved |
+| 5 | Two enforcement layers in fixed order: Doctrine + controller authorization, then deployment-specific action gate | The deployment gate may narrow permissions, never expand them |
+
+## 7. Compatibility tests required before enabling governed execution
+
+1. Doctrine: startup hashes the canonical text and refuses to authorize on mismatch, missing file, or empty anchor; LF and CRLF checkouts produce the same verified result.
+2. Core Four admission context: authority-rank denials originate from the controller and are recorded as authorization enforcement, not as a Kant verdict.
+3. MCP adapter: every existing desktop tool workflow still succeeds through the control plane; no tool executes on an R-Substrate verdict alone.
+4. TPC baseline: the golden template's answer tests (`tests/test_route_lookup.py`, `test_technique_skg.py`, `test_guiderails.py`, `test_pointer_index.py`, `test_field_maintenance.py`) pass against Orbot's TPC.
+5. Gate order: a Doctrine denial cannot be overridden by the deployment gate; a deployment-gate denial (for example an unverified DOM target) holds an action Doctrine permits.
+6. A.I.M.S. merged release: the existing suites from both lines pass, plus tests pinning retirement candidacy and relation-aware relevance.
+
+## 8. Owner decisions required
+
+1. **Doctrine source bytes:** supply the original `Doctrine_v1.0+B+C+D` text file from the machine that produced it (for example `R:\substrate\governance\`), so `b601457a…` and `27c7bfa7…` can be checked against real bytes. If that file cannot be found, decide whether to **re-seal**: ratify the Articles I–VIII (Google Doc " Doctrine v1.0") plus Appendices B, C, D as one canonical text, seal it with UTF-8 + LF normalization, and record the original hashes as historical and unverifiable. Re-sealing is the owner's decision; it is not done by default.
+2. **Which recorded hash was meant to identify what:** `27c7bfa7…` is labelled "file bundle" and `b601457a…` "canonical" in `Orb_Assistant_Desktop_2026`; neither is reproducible from any file or document found.
