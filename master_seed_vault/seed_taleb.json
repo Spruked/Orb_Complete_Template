@@ -1,0 +1,39 @@
+{
+  "$schema": "https://schemas.seedvault.org/core/v1.3.0",
+  "vault_id": "DALS-SEED-TALEB-001",
+  "vault_name": "Nassim Nicholas Taleb – Antifragility and Robustness",
+  "version": "1.0.0",
+  "load_order": 24,
+  "monotonic": false,
+  "author": "Nassim Nicholas Taleb via Bryan A. Spruk",
+  "source_year": 2012,
+  "description": "Heuristics for systems that must survive deep uncertainty and disorder.",
+
+  "core_concepts": [
+    {
+      "term": "Antifragility",
+      "definition": "A property of systems that improve under stress, volatility, and error.",
+      "monotonic": false,
+      "scope": "empirical"
+    },
+    {
+      "term": "Skin in the Game",
+      "definition": "The requirement that agents bear significant downside from their own decisions.",
+      "monotonic": false,
+      "scope": "ethical"
+    },
+    {
+      "term": "Via Negativa",
+      "definition": "In complex domains, subtraction outperforms addition.",
+      "monotonic": false,
+      "scope": "epistemological"
+    }
+  ],
+
+  "principles": [
+    "Forecasts in fat-tailed domains carry negative expected information.",
+    "Complexity without proven survival value is fragility.",
+    "Time is the only reliable judge of truth.",
+    "Symmetry of risk is the foundation of justice."
+  ]
+}
