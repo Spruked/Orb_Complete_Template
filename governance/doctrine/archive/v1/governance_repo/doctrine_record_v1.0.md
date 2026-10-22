@@ -1,0 +1,16 @@
+ORB GOVERNANCE DOCTRINE RECORD
+
+Canonical File:
+Doctrine_v1.0+B+C+D.txt
+
+Version:
+1.0
+
+Status:
+CANONICAL / IMMUTABLE
+
+Ratified:
+2026-03-05
+
+SHA256:
+b601457ace7f0639f790ec8f573bc343363d19f6e53291f3ab04e5e97a2b8c4e

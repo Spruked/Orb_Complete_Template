@@ -1,0 +1,6 @@
+# Historical evidence: store byte-for-byte, never normalize line endings.
+governance/doctrine/archive/** -text
+# Canonical Doctrine artifacts: always LF on every platform, so the seal is identical everywhere.
+governance/doctrine/*.md text eol=lf
+governance/doctrine/*.json text eol=lf
+governance/doctrine/*.sha256 text eol=lf
